@@ -1,6 +1,7 @@
 UrlShortener::Application.routes.draw do
   root :to => 'urls#index'
   resources :urls
+  match '/:appendage' => 'urls#redirect'
   
 
   # The priority is based upon order of creation:
