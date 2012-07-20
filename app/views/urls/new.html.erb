@@ -7,4 +7,5 @@
 <br \>
 <br \>
 <br \>
-<img src="http://userserve-ak.last.fm/serve/_/9137697/Cher+60s.jpg" alt="CHER"/>
+<% image = ("cher" + rand(1..5).to_s)%>
+<%= image_tag(image + ".jpeg") %>
