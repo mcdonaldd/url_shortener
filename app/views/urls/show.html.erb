@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Long URL:</b>
+  <%=link_to @url.long_url, @url.long_url %>
+</p>
+<p>
+<b>Short URL</b>
+<td><%=link_to root_url << @url.appendage, @url.long_url  %></td>
+</p>
+
+<%= link_to 'Edit', edit_url_path(@url) %> |
+<%= link_to 'Back', urls_path %>
