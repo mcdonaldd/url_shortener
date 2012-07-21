@@ -4,6 +4,7 @@
   <tr>
     <th>Long URL</th>
     <th>CHERIFY!</th>
+	<th>How many times?</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,7 +13,8 @@
 <% @urls.each do |url| %>
   <tr>
     <td><%=link_to url.long_url, url.long_url %></td>
-	<td><%=link_to root_url << url.appendage, url.long_url  %></td>
+	<td><%=link_to redirect_url(url.appendage), redirect_url(url.appendage)  %></td>
+	<td><%= url.counter %>
    <FONT FACE="modern"><td><i><%= link_to 'SHOW ME THAT URL!', url %></i></td></FONT>
     <td><i><%= link_to 'EDIT THIS BEEZY', edit_url_path(url) %></i></td>
     <td><i><%= link_to 'FINISH IT!', url, method: :delete, data: { confirm: 'No, Sonny! NO!' } %></i></td></FONT>

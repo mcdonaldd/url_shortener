@@ -1,5 +1,5 @@
 class Url < ActiveRecord::Base
-  attr_accessible :appendage, :long_url
+  attr_accessible :appendage, :long_url, :counter
   validates_uniqueness_of :appendage, :long_url
   validates_presence_of  :long_url
   before_save :set_appendage
@@ -15,5 +15,10 @@ class Url < ActiveRecord::Base
   
   def set_appendage
     self.appendage ||= random_letters
+  end
+  
+  def increment_counter!
+    self.increment(:counter)
+    self.save
   end
 end

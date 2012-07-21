@@ -13,12 +13,8 @@ class UrlsController < ApplicationController
   # GET /urls/1
   # GET /urls/1.json
   def show
-    @url = Url.find(params[:id])
+    render :text => 'hey'
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @url }
-    end
   end
 
   # GET /urls/new
@@ -41,7 +37,6 @@ class UrlsController < ApplicationController
   # POST /urls.json
   def create
     @url = Url.new(params[:url])
-
     respond_to do |format|
       if @url.save
         format.html { redirect_to @url, notice: 'Url was successfully created.' }
@@ -83,6 +78,8 @@ class UrlsController < ApplicationController
   # GET /:appendage
   def redirect
     @url = Url.find_by_appendage(params[:appendage])
+
+    @url.increment_counter!
     redirect_to @url.long_url
   end
 end
